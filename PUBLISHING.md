@@ -1,4 +1,4 @@
-# Publishing `@touheed/pwgen`
+# Publishing `@touheedk/pwgen`
 
 How to ship the CLI to npm (the main place) and a few alternatives. All commands
 run from `packages/pwgen-cli/`.
@@ -55,9 +55,9 @@ npm publish --access public --provenance
 
 ### Verify
 ```bash
-npm view @touheed/pwgen           # registry metadata
-npx @touheed/pwgen --version      # run it straight from npm
-npx @touheed/pwgen -l 24
+npm view @touheedk/pwgen           # registry metadata
+npx @touheedk/pwgen --version      # run it straight from npm
+npx @touheedk/pwgen -l 24
 ```
 
 ---
@@ -79,14 +79,14 @@ git push --follow-tags
 ```bash
 npm version prerelease --preid=beta      # 0.2.0 → 0.2.1-beta.0
 npm publish --tag beta --access public    # users get it via @beta, not @latest
-# install: npm i -g @touheed/pwgen@beta
+# install: npm i -g @touheedk/pwgen@beta
 ```
 
 ### Fixing mistakes
 - **Unpublish** is only allowed within 72 hours and is discouraged:
-  `npm unpublish @touheed/pwgen@0.1.0`
+  `npm unpublish @touheedk/pwgen@0.1.0`
 - Prefer **deprecate** instead:
-  `npm deprecate @touheed/pwgen@0.1.0 "use 0.1.1"`
+  `npm deprecate @touheedk/pwgen@0.1.0 "use 0.1.1"`
 
 ---
 
