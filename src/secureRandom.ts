@@ -1,9 +1,10 @@
 /**
  * secureRandom.ts — the open-sourced cryptographic core (shared with the web app).
  *
- * Dependency-free. Every random value flows through here, and the one rule is:
- * only the CSPRNG `crypto.getRandomValues` (a Node 20+ / browser global), never
- * `Math.random()`.
+ * Every random value flows through here, and the one rule is: only the CSPRNG
+ * Web Crypto `getRandomValues`, never `Math.random()`. We use the browser's
+ * global `crypto` when present and fall back to Node's built-in `node:crypto`
+ * (Web Crypto), so it runs identically on Node 16/18/20+ and in the browser.
  *
  * Why rejection sampling (`randomIndex`): mapping a 32-bit integer onto
  * [0, maxExclusive) with `value % maxExclusive` is biased unless maxExclusive
@@ -11,6 +12,11 @@
  * bias"). We reject any draw in the incomplete final block so the remainder is
  * perfectly uniform.
  */
+import { webcrypto } from 'node:crypto'
+
+// Prefer a pre-existing global `crypto` (browser / Node 20+); otherwise use
+// Node's Web Crypto. Resolved once at module load.
+const csprng: Crypto = (globalThis.crypto ?? (webcrypto as unknown as Crypto))
 
 const UINT32_RANGE = 0x1_0000_0000 // 2^32
 
@@ -29,7 +35,7 @@ export function randomIndex(maxExclusive: number): number {
   const limit = Math.floor(UINT32_RANGE / maxExclusive) * maxExclusive
   const buf = new Uint32Array(1)
   do {
-    crypto.getRandomValues(buf)
+    csprng.getRandomValues(buf)
   } while (buf[0] >= limit)
   return buf[0] % maxExclusive
 }

@@ -1,6 +1,6 @@
 {
   "name": "@touheed/pwgen",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Trustworthy, fully-offline password & passphrase generator CLI. Unbiased CSPRNG (rejection sampling), nothing leaves your machine.",
   "type": "module",
   "bin": {
@@ -13,7 +13,7 @@
     "LICENSE"
   ],
   "engines": {
-    "node": ">=20"
+    "node": ">=18"
   },
   "scripts": {
     "build": "tsc",
