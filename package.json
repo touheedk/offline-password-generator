@@ -1,5 +1,5 @@
 {
-  "name": "@touheedk/pwgen",
+  "name": "@touheed/pwgen",
   "version": "0.1.0",
   "description": "Trustworthy, fully-offline password & passphrase generator CLI. Unbiased CSPRNG (rejection sampling), nothing leaves your machine.",
   "type": "module",

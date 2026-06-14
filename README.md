@@ -1,4 +1,4 @@
-# @touheedk/pwgen
+# @touheed/pwgen
 
 A trustworthy, **fully-offline** password & passphrase generator for your
 terminal. Randomness comes only from the OS CSPRNG (`crypto.getRandomValues`,
@@ -8,9 +8,9 @@ anywhere. Same audited core as the [web app](https://offline-password.coderboi.c
 ## Install
 
 ```bash
-npm install -g @touheedk/pwgen
+npm install -g @touheed/pwgen
 # or run without installing:
-npx @touheedk/pwgen --length 24
+npx @touheed/pwgen --length 24
 ```
 
 Requires Node 20+.
