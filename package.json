@@ -1,0 +1,47 @@
+{
+  "name": "@touheed/pwgen",
+  "version": "0.1.0",
+  "description": "Trustworthy, fully-offline password & passphrase generator CLI. Unbiased CSPRNG (rejection sampling), nothing leaves your machine.",
+  "type": "module",
+  "bin": {
+    "pwgen": "dist/main.js"
+  },
+  "files": [
+    "dist",
+    "wordlists",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsx src/main.ts",
+    "test": "vitest run",
+    "lint": "tsc --noEmit",
+    "prepublishOnly": "npm run build"
+  },
+  "author": "Touheed Khan (https://touheedkhan.com)",
+  "homepage": "https://offline-password.coderboi.com",
+  "keywords": [
+    "password",
+    "passphrase",
+    "generator",
+    "cli",
+    "crypto",
+    "csprng",
+    "offline",
+    "security"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^12.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.5.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.6.3",
+    "vitest": "^3.2.0"
+  }
+}
